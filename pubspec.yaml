@@ -1,0 +1,30 @@
+name: discipleship_memorizer
+description: >-
+  A cross-platform Flutter app for Christian discipleship, verse memorization,
+  evangelism challenges, prayer topics, Bible reading plans, and journaling.
+version: 0.1.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.2
+  shared_preferences: ^2.2.2
+  flutter_local_notifications: ^16.3.2
+  intl: ^0.19.0
+  uuid: ^4.3.3
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/verses/
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
