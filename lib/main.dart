@@ -77,7 +77,7 @@ class _RootScaffoldState extends State<_RootScaffold> {
       destinations: const [
         NavigationDestination(icon: Icon(Icons.menu_book), label: 'Verses'),
         NavigationDestination(icon: Icon(Icons.campaign), label: 'Evangelism'),
-        NavigationDestination(icon: Icon(Icons.hands_clapping_outlined), label: 'Prayer'),
+        NavigationDestination(icon: Icon(Icons.pan_tool_alt), label: 'Prayer'),
         NavigationDestination(icon: Icon(Icons.auto_stories), label: 'Reading'),
         NavigationDestination(icon: Icon(Icons.edit_note), label: 'Notes'),
       ],

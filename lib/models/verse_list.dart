@@ -29,9 +29,16 @@ class VerseList {
   }
 
   Verse? nextIncompleteVerse() {
-    return verses.firstWhere(
-      (verse) => !verse.completed,
-      orElse: () => verses.isEmpty ? null : verses.first,
-    );
+    if (verses.isEmpty) {
+      return null;
+    }
+
+    for (final verse in verses) {
+      if (!verse.completed) {
+        return verse;
+      }
+    }
+
+    return verses.first;
   }
 }
