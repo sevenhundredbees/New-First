@@ -17,7 +17,20 @@ A Flutter application that equips followers of Jesus to grow through Scripture m
 
 ## Getting Started
 
-1. Install the Flutter SDK and platform dependencies for mobile and web builds.
+1. Install the Flutter SDK and platform dependencies for mobile and web builds. If you
+   are using a fresh environment (like this repository's container) you must install
+   Flutter yourself because it is not bundled. Follow the official setup guide for
+   your platform and ensure the `flutter` tool is available on your `PATH`:
+
+   ```sh
+   # From https://docs.flutter.dev/get-started/install
+   git clone https://github.com/flutter/flutter.git -b stable
+   export PATH="$PATH:$PWD/flutter/bin"
+   flutter doctor
+   ```
+
+   Running `flutter doctor` verifies that both the Flutter and Dart SDKs are
+   installed and reports any remaining platform-specific requirements.
 2. Fetch packages:
 
    ```sh
