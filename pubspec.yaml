@@ -21,7 +21,7 @@ dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/verses/
+    - assets/verses/sample_list.json
 
 dev_dependencies:
   flutter_test:
