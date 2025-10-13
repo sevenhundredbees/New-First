@@ -15,6 +15,61 @@ class _NotesScreenState extends State<NotesScreen> {
   final _titleController = TextEditingController();
   final _contentController = TextEditingController();
 
+  void _showEntryDetails(JournalEntry entry) {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        final theme = Theme.of(context);
+        final maxHeight = MediaQuery.of(context).size.height * 0.6;
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        entry.title,
+                        style: theme.textTheme.headlineSmall,
+                      ),
+                    ),
+                    IconButton(
+                      tooltip: 'Close',
+                      onPressed: () => Navigator.of(context).maybePop(),
+                      icon: const Icon(Icons.close),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '${entry.date.month}/${entry.date.day}/${entry.date.year}',
+                  style: theme.textTheme.bodySmall,
+                ),
+                const SizedBox(height: 16),
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxHeight: maxHeight),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      entry.content,
+                      style: theme.textTheme.bodyLarge,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -46,6 +101,7 @@ class _NotesScreenState extends State<NotesScreen> {
                     '${entry.date.month}/${entry.date.day}/${entry.date.year}',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
+                  onTap: () => _showEntryDetails(entry),
                 ),
               );
             },
